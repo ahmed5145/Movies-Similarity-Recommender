@@ -9,18 +9,18 @@
         }
       },
       {
-        "src": "movies-similarity-backend/api/**/*.py",
+        "src": "movies-similarity-backend/app/**/*.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "movies-similarity-backend/api/$1"
+        "dest": "movies-similarity-backend/app/app.py"
       },
       {
         "src": "/(.*)",
-        "dest": "movies-similarity-frontend/build/$1"
+        "dest": "/movies-similarity-frontend/build/$1"
       }
     ],
     "build": {
