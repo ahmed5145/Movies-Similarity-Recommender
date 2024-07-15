@@ -2,6 +2,9 @@
     "version": 2,
     "builds": [
       {
+        "env": {
+        "NODE_OPTIONS": "--openssl-legacy-provider"
+        },
         "src": "movie-similarity-frontend/package.json",
         "use": "@vercel/static-build",
         "config": {
