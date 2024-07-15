@@ -9,7 +9,7 @@
         }
       },
       {
-        "src": "movies-similarity-backend/app/**/*.py",
+        "src": "movies-similarity-backend/app/main.py",
         "use": "@vercel/python"
       }
     ],
@@ -20,13 +20,8 @@
       },
       {
         "src": "/(.*)",
-        "dest": "/movies-similarity-frontend/build/$1"
+        "dest": "movies-similarity-frontend/build/$1"
       }
-    ],
-    "build": {
-      "env": {
-        "NODE_OPTIONS": "--openssl-legacy-provider"
-      }
-    }
+    ]
   }
   
