@@ -2,21 +2,18 @@
     "version": 2,
     "builds": [
       {
-        "src": "movies-similarity-frontend/package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "build"
-        }
+        "src": "app/main.py",
+        "use": "@vercel/python"
       },
       {
-        "src": "movies-similarity-backend/app/main.py",
-        "use": "@vercel/python"
+        "src": "movies-similarity-frontend/package.json",
+        "use": "@vercel/react"
       }
     ],
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "movies-similarity-backend/app/main.py"
+        "dest": "app/main.py"
       },
       {
         "src": "/(.*)",
