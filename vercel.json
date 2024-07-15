@@ -2,25 +2,31 @@
     "version": 2,
     "builds": [
       {
-        "env": {
-        "NODE_OPTIONS": "--openssl-legacy-provider"
-        },
-        "src": "movie-similarity-frontend/package.json",
+        "src": "movies-similarity-frontend/package.json",
         "use": "@vercel/static-build",
         "config": {
-          "distDir": "movie-similarity-frontend/build"
+          "distDir": "build"
         }
       },
       {
-        "src": "backend/app.py",
+        "src": "movies-similarity-backend/api/**/*.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "/movie-similarity-backend/app.py" 
+        "dest": "movies-similarity-backend/api/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "movies-similarity-frontend/build/$1"
       }
-    ]
+    ],
+    "build": {
+      "env": {
+        "NODE_OPTIONS": "--openssl-legacy-provider"
+      }
+    }
   }
   
