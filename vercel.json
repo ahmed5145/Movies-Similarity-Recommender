@@ -15,7 +15,7 @@
     ],
     "routes": [
       {
-        "src": "/api/(.*)",
+        "src": "/app/(.*)",
         "dest": "movies-similarity-backend/app/app.py"
       },
       {
