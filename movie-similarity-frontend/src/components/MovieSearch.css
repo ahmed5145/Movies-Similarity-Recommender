@@ -1,0 +1,14 @@
+.movie-search {
+    margin: 20px 0;
+}
+
+.movie-search input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.movie-search button {
+    margin-left: 10px;
+}

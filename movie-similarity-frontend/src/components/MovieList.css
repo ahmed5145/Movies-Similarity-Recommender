@@ -1,0 +1,34 @@
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.movie-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.2s;
+}
+
+.movie-item:hover {
+    transform: scale(1.05);
+}
+
+.movie-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.movie-item p {
+    margin: 5px 0;
+    color: #666;
+}
