@@ -35,21 +35,6 @@ const App = () => {
     }
   };
 
-  const handleFilter = async (year) => {
-    setLoading(true);
-    try {
-      const response = await axios.get('/api/movies');
-      const filteredMovies = response.data
-        .filter(movie => movie['Release Year'] === year)
-        .sort((a, b) => b['Release Year'] - a['Release Year']);
-      setMovies(filteredMovies);
-    } catch (error) {
-      console.error('Error filtering movies:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
     fetchMovies();
   }, []);
@@ -59,7 +44,6 @@ const App = () => {
       <h1>Movie Similarity Search</h1>
       <MovieSearch setMovies={setMovies} />
       <button onClick={fetchMovies}>Show All Movies</button>
-      <button onClick={() => handleFilter('2023')}>Filter by Newest Movies</button>
       {loading ? <p>Loading...</p> : <MovieList movies={movies} />}
     </div>
   );
