@@ -2,6 +2,7 @@ import React from 'react';
 import './MovieList.css';
 
 const MovieList = ({ movies }) => {
+  console.log('Movies prop:', movies);
   if (!Array.isArray(movies)) {
     console.error('Expected movies to be an array but got:', movies);
     return null;

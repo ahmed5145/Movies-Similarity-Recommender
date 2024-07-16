@@ -13,6 +13,7 @@ const App = () => {
     setLoading(true);
     try {
       const response = await axios.get('/api/movies');
+      console.log('Fetched movies:', response.data);
       setMovies(response.data);
     } catch (error) {
       console.error('Error fetching movies:', error);
@@ -28,6 +29,7 @@ const App = () => {
       const response = await axios.post('/api/similar', {
         plot: searchText,
       });
+      console.log('Searched movies:', response.data);
       setMovies(response.data);
     } catch (error) {
       console.error('Error searching movies:', error);
