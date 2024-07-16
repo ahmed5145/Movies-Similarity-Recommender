@@ -2,6 +2,10 @@ import React from 'react';
 import './MovieList.css';
 
 const MovieList = ({ movies }) => {
+  if (!Array.isArray(movies)) {
+    console.error('Expected movies to be an array but got:', movies);
+    return null;
+  }
   return (
     <div className="movie-list">
       {movies.map((movie, index) => (

@@ -16,6 +16,7 @@ const App = () => {
       setMovies(response.data);
     } catch (error) {
       console.error('Error fetching movies:', error);
+      setMovies([]);
     } finally {
       setLoading(false);
     }
@@ -30,6 +31,7 @@ const App = () => {
       setMovies(response.data);
     } catch (error) {
       console.error('Error searching movies:', error);
+      setMovies([]);
     } finally {
       setLoading(false);
     }
