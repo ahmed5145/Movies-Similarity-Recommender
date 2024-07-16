@@ -53,7 +53,7 @@ kmeans.fit(X)
 df['cluster'] = kmeans.labels_
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app)
 
 @app.route('/')
 def home():
@@ -71,7 +71,10 @@ def get_movies():
 
 @app.route('/api/similar', methods=['POST'])
 def find_similar():
+    print(f"Received data: {request.data}")
     data = request.get_json()
+    if not data or 'plot' not in data:
+        return jsonify({"error": "Invalid request"}), 400
     plot = data['plot']
     processed_plot = preprocess_text(plot)
     vectorized_plot = vectorizer.transform([processed_plot])
