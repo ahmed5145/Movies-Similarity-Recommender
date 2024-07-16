@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MovieList from './components/MovieList';
 import MovieSearch from './components/MovieSearch';
-import './App.css'; 
+import './App.css';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
