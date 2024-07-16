@@ -53,7 +53,7 @@ kmeans.fit(X)
 df['cluster'] = kmeans.labels_
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://movies-similarity-recommender.vercel.app"])
 
 @app.route('/')
 def home():
