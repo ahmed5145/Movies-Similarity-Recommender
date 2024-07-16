@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import './MovieSearch.css';
 
-const MovieSearch = ({ setMovies }) => {
+const MovieSearch = ({ handleSearch }) => {
     const [plot, setPlot] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-    const handleSearch = async () => {
+    const onSearch = async () => {
         setLoading(true);
         setError('');
-        setMovies([]); // Clear previous results
         try {
-            const response = await axios.post('/api/similar', { plot });
-            setMovies(response.data);
+            await handleSearch(plot);
         } catch (err) {
             setError('Error fetching similar movies.');
         } finally {
@@ -29,7 +26,7 @@ const MovieSearch = ({ setMovies }) => {
                 onChange={(e) => setPlot(e.target.value)}
                 rows="4"
             />
-            <button onClick={handleSearch} disabled={loading}>
+            <button onClick={onSearch} disabled={loading}>
                 {loading ? 'Searching...' : 'Find Similar Movies'}
             </button>
             {error && <p className="error">{error}</p>}

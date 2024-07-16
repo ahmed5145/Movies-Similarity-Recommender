@@ -23,12 +23,10 @@ const App = () => {
     }
   };
 
-  const handleSearch = async () => {
+  const handleSearch = async (plot) => {
     setLoading(true);
     try {
-      const response = await axios.post('/api/similar', {
-        plot: searchText,
-      });
+      const response = await axios.post('/api/similar', { plot });
       console.log('Searched movies:', response.data);
       setMovies(response.data);
     } catch (error) {
@@ -46,7 +44,7 @@ const App = () => {
   return (
     <div className="app">
       <h1>Movie Similarity Search</h1>
-      <MovieSearch setMovies={setMovies} />
+      <MovieSearch handleSearch={handleSearch} />
       <button onClick={fetchMovies}>Show All Movies</button>
       {loading ? <p>Loading...</p> : <MovieList movies={movies} />}
     </div>
