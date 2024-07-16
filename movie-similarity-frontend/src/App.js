@@ -25,19 +25,17 @@ const App = () => {
 
   const handleSearch = async (plot) => {
     setLoading(true);
-    setError('');
-    setMovies([]);
     try {
-        const response = await axios.post('/api/similar', { plot });
-        setMovies(response.data);
-    } catch (err) {
-        setError('Error fetching similar movies.');
-        console.error(err);
+      const response = await axios.post('/api/similar', { plot });
+      console.log('Searched movies:', response.data);
+      setMovies(response.data);
+    } catch (error) {
+      console.error('Error searching movies:', error);
+      setMovies([]);
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
-};
-
+  };
 
   useEffect(() => {
     fetchMovies();
