@@ -23,7 +23,7 @@ const App = () => {
     }
   };
 
-  const handleSearch = async () => {
+  const handleSearch = async (plot) => {
     setLoading(true);
     setError('');
     setMovies([]);
@@ -37,6 +37,7 @@ const App = () => {
         setLoading(false);
     }
 };
+
 
   useEffect(() => {
     fetchMovies();
