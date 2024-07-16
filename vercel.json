@@ -6,7 +6,7 @@
         "use": "@vercel/python"
       },
       {
-        "src": "movies-similarity-frontend/package.json",
+        "src": "movie-similarity-frontend/package.json",
         "use": "@vercel/react"
       }
     ],
@@ -17,7 +17,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "movies-similarity-frontend/build/$1"
+        "dest": "movie-similarity-frontend/build/$1"
       }
     ]
   }

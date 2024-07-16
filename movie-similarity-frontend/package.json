@@ -1,5 +1,5 @@
 {
-  "name": "movies-similarity-frontend",
+  "name": "movie-similarity-frontend",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -12,7 +12,7 @@
   "scripts": {
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
     "start:frontend": "react-scripts start",
-    "start:backend": "cd ../movies-similarity-backend/app && python main.py",
+    "start:backend": "cd ../movie-similarity-backend/app && python main.py",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

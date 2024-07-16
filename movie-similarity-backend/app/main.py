@@ -13,9 +13,13 @@ import os
 nltk.download('punkt')
 nltk.download('stopwords')
 
+# Define the directory for data files
+data_directory = os.path.dirname(os.path.abspath(__file__))
+
 # Load Data with only necessary columns
 print("Loading data...")
-df = pd.read_csv('movies.csv', usecols=['Title', 'Plot', 'Release Year'])
+csv_path = os.path.join(data_directory, 'movies.csv')
+df = pd.read_csv(csv_path, usecols=['Title', 'Plot', 'Release Year'])
 print("Data loaded successfully.")
 
 # Preprocess and Vectorize
@@ -28,7 +32,7 @@ def preprocess_text(text):
     return ' '.join(filtered_words)
 
 # Check if processed data exists
-processed_file = 'processed_plot.pkl'
+processed_file = os.path.join(data_directory, 'processed_plot.pkl')
 if os.path.exists(processed_file):
     with open(processed_file, 'rb') as f:
         processed_plots = pickle.load(f)
