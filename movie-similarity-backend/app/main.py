@@ -53,7 +53,7 @@ kmeans.fit(X)
 df['cluster'] = kmeans.labels_
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/')
 def home():

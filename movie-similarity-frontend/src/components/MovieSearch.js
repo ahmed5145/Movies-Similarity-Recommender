@@ -12,6 +12,7 @@ const MovieSearch = ({ handleSearch }) => {
         try {
             await handleSearch(plot);
         } catch (err) {
+            console.error('Error details:', err.response);
             setError('Error fetching similar movies.');
         } finally {
             setLoading(false);
