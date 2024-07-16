@@ -12,7 +12,7 @@ const App = () => {
   const fetchMovies = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('api/movies');
+      const response = await axios.get('/api/movies');
       setMovies(response.data);
     } catch (error) {
       console.error('Error fetching movies:', error);
@@ -24,7 +24,7 @@ const App = () => {
   const handleSearch = async () => {
     setLoading(true);
     try {
-      const response = await axios.post('api/similar', {
+      const response = await axios.post('/api/similar', {
         plot: searchText,
       });
       setMovies(response.data);
@@ -38,7 +38,7 @@ const App = () => {
   const handleFilter = async (year) => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/api/movies');
+      const response = await axios.get('/api/movies');
       const filteredMovies = response.data
         .filter(movie => movie['Release Year'] === year)
         .sort((a, b) => b['Release Year'] - a['Release Year']);
