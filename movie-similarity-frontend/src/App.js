@@ -43,7 +43,9 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>Movie Similarity Search</h1>
+      <h1>Movie Similarity Search</h1><br></br>
+      <p> PS it's currently not working as I am doing some changes</p><br></br>
+      <p> Sorry :( </p>
       <MovieSearch handleSearch={handleSearch} />
       <button onClick={fetchMovies}>Show All Movies</button>
       {loading ? <p>Loading...</p> : <MovieList movies={movies} />}
