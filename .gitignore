@@ -37,3 +37,6 @@ env/
 
 # Vercel
 .vercel
+
+movie-similarity-backend/movies.csv
+movie-similarity-backend/app/movies.csv
